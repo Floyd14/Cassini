@@ -24,6 +24,16 @@ class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
         }
     }
     
+    @IBAction func showImage(_ sender: UIButton) {
+        if let ivc = splitViewController?.viewControllers.last?.currentViewController as? ImageViewController {
+            let imageName = sender.currentTitle
+            ivc.imageUrl = DemoURLs.NASAImageNamed(imageNamed: imageName)
+            ivc.title = imageName
+        } else {
+            performSegue(withIdentifier: storyBoard.showImageSegue, sender: sender)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // setto il viewcontroller per essere il delegato a se stesso

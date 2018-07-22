@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		65DE4C3E210478F400E807ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE4C3D210478F400E807ED /* AppDelegate.swift */; };
-		65DE4C40210478F400E807ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE4C3F210478F400E807ED /* ViewController.swift */; };
 		65DE4C43210478F400E807ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DE4C41210478F400E807ED /* Main.storyboard */; };
 		65DE4C45210478F400E807ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65DE4C44210478F400E807ED /* Assets.xcassets */; };
 		65DE4C48210478F400E807ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DE4C46210478F400E807ED /* LaunchScreen.storyboard */; };
+		65DE4C51210479D900E807ED /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE4C50210479D900E807ED /* ImageViewController.swift */; };
+		65DE4C532104806200E807ED /* DemoImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE4C522104806200E807ED /* DemoImages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		65DE4C3A210478F400E807ED /* Cassini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cassini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DE4C3D210478F400E807ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		65DE4C3F210478F400E807ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		65DE4C42210478F400E807ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65DE4C44210478F400E807ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65DE4C47210478F400E807ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65DE4C49210478F400E807ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65DE4C50210479D900E807ED /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		65DE4C522104806200E807ED /* DemoImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		65DE4C3C210478F400E807ED /* Cassini */ = {
 			isa = PBXGroup;
 			children = (
-				65DE4C3D210478F400E807ED /* AppDelegate.swift */,
-				65DE4C3F210478F400E807ED /* ViewController.swift */,
 				65DE4C41210478F400E807ED /* Main.storyboard */,
-				65DE4C44210478F400E807ED /* Assets.xcassets */,
-				65DE4C46210478F400E807ED /* LaunchScreen.storyboard */,
+				65DE4C50210479D900E807ED /* ImageViewController.swift */,
+				65DE4C522104806200E807ED /* DemoImages.swift */,
 				65DE4C49210478F400E807ED /* Info.plist */,
+				65DE4C4F2104791900E807ED /* Supporting Files */,
 			);
 			path = Cassini;
+			sourceTree = "<group>";
+		};
+		65DE4C4F2104791900E807ED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				65DE4C3D210478F400E807ED /* AppDelegate.swift */,
+				65DE4C44210478F400E807ED /* Assets.xcassets */,
+				65DE4C46210478F400E807ED /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65DE4C40210478F400E807ED /* ViewController.swift in Sources */,
+				65DE4C532104806200E807ED /* DemoImages.swift in Sources */,
+				65DE4C51210479D900E807ED /* ImageViewController.swift in Sources */,
 				65DE4C3E210478F400E807ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

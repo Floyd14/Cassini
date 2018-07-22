@@ -9,32 +9,49 @@
 import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate {
-
+    
     var imageUrl: NSURL? {
         didSet {
             image = nil
-            fetchImage()
+            if view.window != nil {
+                fetchImage()
+            }
         }
     }
     
     private func fetchImage() {
+        // se ho l'url
         if let url = imageUrl {
-            if let imageData = NSData(contentsOf: url as URL) {
-                image = UIImage(data: imageData as Data)
+            spinner.startAnimating()
+            DispatchQueue.global(qos: .userInitiated).async {
+                // prendo i dati dell'url
+                let contentsOfURL = NSData(contentsOf: url as URL)
+                DispatchQueue.main.async {
+                    // se l'url è uguale all'url che ho chiesto ..
+                    if url == self.imageUrl {
+                        if let imageData = contentsOfURL {
+                            self.image = UIImage(data: imageData as Data)
+                        }
+                    } else {
+                        print("Ignored required URL: \(url)")
+                    }
+                }
             }
         }
     }
     
     private var imageView = UIImageView()
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView?.contentSize = imageView.frame.size
             scrollView.delegate = self
-            scrollView.minimumZoomScale = 0.03
+            scrollView.minimumZoomScale = 0.05
         }
     }
-   
+    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
@@ -47,13 +64,19 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.image = newValue
             imageView.sizeToFit()
             scrollView?.contentSize = imageView.frame.size
+            spinner?.stopAnimating()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchImage()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.addSubview(imageView)
-       //  imageUrl = NSURL(string: DemoURLs.tramonto)
+        //  imageUrl = NSURL(string: DemoURLs.tramonto)
         
         // Do any additional setup after loading the view.
     }

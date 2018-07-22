@@ -22,7 +22,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     private func fetchImage() {
         // se ho l'url
         if let url = imageUrl {
-            spinner.startAnimating()
+            spinner?.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async {
                 // prendo i dati dell'url
                 let contentsOfURL = NSData(contentsOf: url as URL)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CassiniViewController: UIViewController {
+class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
     
     private struct storyBoard {
         static let showImageSegue = "Show Detail"
@@ -23,7 +23,30 @@ class CassiniViewController: UIViewController {
             }
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // setto il viewcontroller per essere il delegato a se stesso
+        splitViewController?.delegate = self
+    }
+    
+    
+    func splitViewController(
+        _ splitViewController: UISplitViewController,
+        collapseSecondary secondaryViewController: UIViewController,
+        onto primaryViewController: UIViewController
+        ) -> Bool
+        {
+            if primaryViewController == self {
+                if let ivc = secondaryViewController.currentViewController as? ImageViewController, ivc.imageUrl == nil  {
+                    return false
+                }
+            }
+            return true
+        }
+    
 }
+
 
 extension UIViewController {
     var currentViewController: UIViewController {
